@@ -1,173 +1,118 @@
-import { buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Facebook, Instagram, Linkedin } from "lucide-react";
 
-interface TeamProps {
+interface CharacterProps {
   imageUrl: string;
   name: string;
-  position: string;
-  socialNetworks: SociaNetworkslProps[];
+  region: string;
+  tagline: string;
 }
 
-interface SociaNetworkslProps {
-  name: string;
-  url: string;
-}
-
-const teamList: TeamProps[] = [
+const characterList: CharacterProps[] = [
   {
-    imageUrl: "https://i.pravatar.cc/150?img=35",
-    name: "Emma Smith",
-    position: "Product Manager",
-    socialNetworks: [
-      {
-        name: "Linkedin",
-        url: "https://www.linkedin.com/in/leopoldo-miranda/",
-      },
-      {
-        name: "Facebook",
-        url: "https://www.facebook.com/",
-      },
-      {
-        name: "Instagram",
-        url: "https://www.instagram.com/",
-      },
-    ],
+    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=itbaba",
+    name: "IT Baba",
+    region: "Pune/Bangalore",
+    tagline: "I build the internet.",
   },
   {
-    imageUrl: "https://i.pravatar.cc/150?img=60",
-    name: "John Doe",
-    position: "Tech Lead",
-    socialNetworks: [
-      {
-        name: "Linkedin",
-        url: "https://www.linkedin.com/in/leopoldo-miranda/",
-      },
-      {
-        name: "Facebook",
-        url: "https://www.facebook.com/",
-      },
-      {
-        name: "Instagram",
-        url: "https://www.instagram.com/",
-      },
-    ],
+    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=sherpunjab",
+    name: "Sher-e-Punjab",
+    region: "Punjab",
+    tagline: "I don’t honk. People move.",
   },
   {
-    imageUrl: "https://i.pravatar.cc/150?img=36",
-    name: "Ashley Ross",
-    position: "Frontend Developer",
-    socialNetworks: [
-      {
-        name: "Linkedin",
-        url: "https://www.linkedin.com/in/leopoldo-miranda/",
-      },
-
-      {
-        name: "Instagram",
-        url: "https://www.instagram.com/",
-      },
-    ],
+    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=mumbaidon",
+    name: "Mumbai Don",
+    region: "Maharashtra",
+    tagline: "Boss of the block.",
   },
   {
-    imageUrl: "https://i.pravatar.cc/150?img=17",
-    name: "Bruce Rogers",
-    position: "Backend Developer",
-    socialNetworks: [
-      {
-        name: "Linkedin",
-        url: "https://www.linkedin.com/in/leopoldo-miranda/",
-      },
-      {
-        name: "Facebook",
-        url: "https://www.facebook.com/",
-      },
-    ],
+    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=desiwarrior",
+    name: "Desi Warrior",
+    region: "Maharashtra",
+    tagline: "My code is honor.",
+  },
+  {
+    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=jattmuscleman",
+    name: "Jatt Muscleman",
+    region: "Haryana/Punjab",
+    tagline: "Muscle is the message.",
+  },
+  {
+    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=swagwalidilligirl",
+    name: "Swagwali Dilli Girl",
+    region: "Delhi NCR",
+    tagline: "Move your car, or I’ll move you.",
+  },
+  {
+    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=nammatechie",
+    name: "Namma Techie",
+    region: "Bengaluru",
+    tagline: "Sleep is for backend jobs.",
+  },
+  {
+    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=upbhaiya",
+    name: "UP Bhaiya",
+    region: "Uttar Pradesh",
+    tagline: "Tu scan kar, baaki main dekh lunga.",
+  },
+  {
+    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=riderx",
+    name: "Rider X",
+    region: "Universal",
+    tagline: "Born to overtake.",
+  },
+  {
+    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=bosslady",
+    name: "Boss Lady",
+    region: "Pan-India",
+    tagline: "I run this road.",
   },
 ];
 
-export const Team = () => {
-  const socialIcon = (iconName: string) => {
-    switch (iconName) {
-      case "Linkedin":
-        return <Linkedin size="20" />;
-
-      case "Facebook":
-        return <Facebook size="20" />;
-
-      case "Instagram":
-        return <Instagram size="20" />;
-    }
-  };
-
+export const Characters = () => {
   return (
     <section
-      id="team"
+      id="characters"
       className="container py-24 sm:py-32"
     >
-      <h2 className="text-3xl md:text-4xl font-bold">
+      <h2 className="text-3xl md:text-4xl font-bold md:text-center">
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-          Our Dedicated{" "}
-        </span>
-        Crew
+          Meet the
+        </span>{' '}
+        ZiddiQR Characters
       </h2>
-
       <p className="mt-4 mb-10 text-xl text-muted-foreground">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis
-        dolor pariatur sit!
+        Choose your vibe! Each ZiddiQR sticker features a unique, attitude-rich character representing India’s diversity and street-smart spirit.
       </p>
-
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 gap-y-10">
-        {teamList.map(
-          ({ imageUrl, name, position, socialNetworks }: TeamProps) => (
-            <Card
-              key={name}
-              className="bg-muted/50 relative mt-8 flex flex-col justify-center items-center"
-            >
-              <CardHeader className="mt-8 flex justify-center items-center pb-2">
-                <img
-                  src={imageUrl}
-                  alt={`${name} ${position}`}
-                  className="absolute -top-12 rounded-full w-24 h-24 aspect-square object-cover"
-                />
-                <CardTitle className="text-center">{name}</CardTitle>
-                <CardDescription className="text-primary">
-                  {position}
-                </CardDescription>
-              </CardHeader>
-
-              <CardContent className="text-center pb-2">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              </CardContent>
-
-              <CardFooter>
-                {socialNetworks.map(({ name, url }: SociaNetworkslProps) => (
-                  <div key={name}>
-                    <a
-                      rel="noreferrer noopener"
-                      href={url}
-                      target="_blank"
-                      className={buttonVariants({
-                        variant: "ghost",
-                        size: "sm",
-                      })}
-                    >
-                      <span className="sr-only">{name} icon</span>
-                      {socialIcon(name)}
-                    </a>
-                  </div>
-                ))}
-              </CardFooter>
-            </Card>
-          )
-        )}
+      <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 gap-y-10">
+        {characterList.map(({ imageUrl, name, region, tagline }: CharacterProps) => (
+          <Card
+            key={name}
+            className="bg-muted/50 relative mt-8 flex flex-col justify-center items-center"
+          >
+            <CardHeader className="mt-8 flex justify-center items-center pb-2">
+              <img
+                src={imageUrl}
+                alt={`${name} avatar`}
+                className="absolute -top-12 rounded-full w-24 h-24 aspect-square object-cover"
+              />
+              <CardTitle className="text-center">{name}</CardTitle>
+              <CardDescription className="text-primary">
+                {region}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="text-center pb-2">
+              <p>{tagline}</p>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </section>
   );

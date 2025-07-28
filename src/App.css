@@ -123,3 +123,16 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes feature-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-feature-marquee {
+  animation: feature-marquee 18s linear infinite;
+}

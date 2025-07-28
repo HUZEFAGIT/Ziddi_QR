@@ -1,14 +1,7 @@
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Check } from "lucide-react";
+import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
+import { Check, ShoppingCart, Car, Bike } from "lucide-react";
 
 enum PopularPlanType {
   NO = 0,
@@ -22,53 +15,63 @@ interface PricingProps {
   description: string;
   buttonText: string;
   benefitList: string[];
+  link: string;
 }
 
 const pricingList: PricingProps[] = [
   {
-    title: "Free",
-    popular: 0,
-    price: 0,
-    description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Get Started",
+    title: "Twin Pack",
+    popular: PopularPlanType.NO,
+    price: 199,
+    description: "Perfect starter pack! Set of 2 premium car stickers with any characters you choose.",
+    buttonText: "Buy on Amazon",
     benefitList: [
-      "1 Team member",
-      "2 GB Storage",
-      "Upto 4 pages",
-      "Community support",
-      "lorem ipsum dolor",
+      "2 Premium QR Car Stickers",
+      "Choose any 2 characters",
+      "Waterproof & UV resistant", 
+      "Lifetime QR support",
+      "Privacy protected messaging",
+      "Free delivery across India",
+      "Save ₹99 vs individual",
     ],
+    link: "https://amazon.in/ziddiqr-twin",
   },
   {
-    title: "Premium",
-    popular: 1,
-    price: 5,
-    description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Start Free Trial",
+    title: "Car Pack (4)",  
+    popular: PopularPlanType.YES,
+    price: 349,
+    description: "Most popular! Set of 4 car stickers - perfect for family cars or gifting friends.",
+    buttonText: "Buy on Flipkart",
     benefitList: [
-      "4 Team member",
-      "4 GB Storage",
-      "Upto 6 pages",
-      "Priority support",
-      "lorem ipsum dolor",
+      "4 Premium QR Car Stickers",
+      "Mix & match any characters",
+      "Waterproof & UV resistant",
+      "Lifetime QR support",
+      "Privacy protected messaging", 
+      "Premium gift box packaging",
+      "Save ₹247 vs individual",
+      "Perfect for family vehicles",
     ],
+    link: "https://flipkart.com/ziddiqr-car-pack",
   },
   {
-    title: "Enterprise",
-    popular: 0,
-    price: 40,
-    description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Contact US",
+    title: "Ultimate Pack",
+    popular: PopularPlanType.NO, 
+    price: 449,
+    description: "Complete solution! 4 car stickers + 2 bike stickers for all your vehicles.",
+    buttonText: "Buy on Amazon",
     benefitList: [
-      "10 Team member",
-      "8 GB Storage",
-      "Upto 10 pages",
-      "Priority support",
-      "lorem ipsum dolor",
+      "4 Premium QR Car Stickers",
+      "2 Premium QR Bike Stickers",
+      "All character options available",
+      "Waterproof & UV resistant",
+      "Lifetime QR support", 
+      "Privacy protected messaging",
+      "Premium gift packaging",
+      "Save ₹345 vs individual",
+      "Complete vehicle coverage",
     ],
+    link: "https://amazon.in/ziddiqr-ultimate",
   },
 ];
 
@@ -79,16 +82,13 @@ export const Pricing = () => {
       className="container py-24 sm:py-32"
     >
       <h2 className="text-3xl md:text-4xl font-bold text-center">
-        Get
+        Simple{" "}
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-          {" "}
-          Unlimited{" "}
+          Pricing
         </span>
-        Access
       </h2>
       <h3 className="text-xl text-center text-muted-foreground pt-4 pb-8">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
-        reiciendis.
+        Choose your ZiddiQR pack. Mix & match any characters. <strong>Starting from ₹199</strong> 🏷️
       </h3>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {pricingList.map((pricing: PricingProps) => (
@@ -96,13 +96,22 @@ export const Pricing = () => {
             key={pricing.title}
             className={
               pricing.popular === PopularPlanType.YES
-                ? "drop-shadow-xl shadow-black/10 dark:shadow-white/10"
+                ? "drop-shadow-xl shadow-black/10 dark:shadow-white/10 border-[1.5px] border-primary lg:scale-[1.1]"
                 : ""
             }
           >
             <CardHeader>
               <CardTitle className="flex item-center justify-between">
-                {pricing.title}
+                <div className="flex items-center gap-2">
+                  {pricing.title === "Ultimate Pack" && (
+                    <div className="flex gap-1">
+                      <Car className="w-4 h-4 text-primary" />
+                      <Bike className="w-4 h-4 text-primary" />
+                    </div>
+                  )}
+                  {pricing.title !== "Ultimate Pack" && <Car className="w-4 h-4 text-primary" />}
+                  {pricing.title}
+                </div>
                 {pricing.popular === PopularPlanType.YES ? (
                   <Badge
                     variant="secondary"
@@ -113,18 +122,24 @@ export const Pricing = () => {
                 ) : null}
               </CardTitle>
               <div>
-                <span className="text-3xl font-bold">${pricing.price}</span>
-                <span className="text-muted-foreground"> /month</span>
+                <span className="text-3xl font-bold">₹{pricing.price}</span>
+                <span className="text-muted-foreground"> /pack</span>
               </div>
 
               <CardDescription>{pricing.description}</CardDescription>
             </CardHeader>
 
             <CardContent>
-              <Button className="w-full">{pricing.buttonText}</Button>
+              <Button 
+                asChild
+                className="w-full"
+              >
+                <a href={pricing.link} target="_blank" rel="noopener noreferrer">
+                  <ShoppingCart className="mr-2 w-4 h-4" />
+                  {pricing.buttonText}
+                </a>
+              </Button>
             </CardContent>
-
-            <hr className="w-4/5 m-auto mb-4" />
 
             <CardFooter className="flex">
               <div className="space-y-4">
@@ -133,7 +148,7 @@ export const Pricing = () => {
                     key={benefit}
                     className="flex"
                   >
-                    <Check className="text-green-500" />{" "}
+                    <Check className="text-green-500" />
                     <h3 className="ml-2">{benefit}</h3>
                   </span>
                 ))}

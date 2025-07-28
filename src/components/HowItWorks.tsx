@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { MedalIcon, MapIcon, PlaneIcon, GiftIcon } from "../components/Icons";
+import { Megaphone, Map, Plane, Gift } from "lucide-react";
 
 interface FeatureProps {
   icon: JSX.Element;
@@ -9,47 +9,46 @@ interface FeatureProps {
 
 const features: FeatureProps[] = [
   {
-    icon: <MedalIcon />,
-    title: "Accessibility",
+    icon: <Megaphone className="w-10 h-10" />,
+    title: "Choose Your Character",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+      "Pick from 50+ attitude-packed desi characters that represent your vibe - from IT Baba to Sher-e-Punjab to Mumbai Don.",
   },
   {
-    icon: <MapIcon />,
-    title: "Community",
+    icon: <Map className="w-10 h-10" />,
+    title: "Stick on Dashboard", 
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+      "Place your waterproof, UV-resistant ZiddiQR sticker on your car's dashboard. Visible but stylish.",
   },
   {
-    icon: <PlaneIcon />,
-    title: "Scalability",
+    icon: <Plane className="w-10 h-10" />,
+    title: "Get Contacted Safely",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+      "When someone needs to reach you, they scan your QR code. No phone number revealed - messages come through our secure platform.",
   },
   {
-    icon: <GiftIcon />,
-    title: "Gamification",
+    icon: <Gift className="w-10 h-10" />,
+    title: "Respond When You Want",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+      "Check messages on your ZiddiQR dashboard or app. Reply when convenient. Your privacy, your choice.",
   },
 ];
 
 export const HowItWorks = () => {
   return (
     <section
-      id="howItWorks"
+      id="how-it-works"
       className="container text-center py-24 sm:py-32"
     >
       <h2 className="text-3xl md:text-4xl font-bold ">
-        How It{" "}
+        How{" "}
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-          Works{" "}
+          ZiddiQR{" "}
         </span>
-        Step-by-Step Guide
+        Works
       </h2>
       <p className="md:w-3/4 mx-auto mt-4 mb-8 text-xl text-muted-foreground">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis
-        dolor pariatur sit!
+        Four simple steps to upgrade your car contact game with style and security.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

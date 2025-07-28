@@ -5,10 +5,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import image from "../assets/growth.png";
-import image3 from "../assets/reflecting.png";
-import image4 from "../assets/looking-ahead.png";
+} from "./ui/card";
 
 interface FeatureProps {
   title: string;
@@ -18,36 +15,62 @@ interface FeatureProps {
 
 const features: FeatureProps[] = [
   {
-    title: "Responsive Design",
+    title: "Scan & Contact Safely",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
-    image: image4,
+      "Revolutionary QR technology lets people contact you instantly without revealing your phone number. Messages come through our secure platform - you stay in control.",
+    image: "https://img.icons8.com/color/144/qr-code--v1.png",
   },
   {
-    title: "Intuitive user interface",
+    title: "50+ Desi Characters",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
-    image: image3,
+      "From IT Baba to Sher-e-Punjab, Mumbai Don to Swagwali Dilli Girl - choose characters that represent your personality, region, and attitude. Made for Indians, by Indians.",
+    image: "https://img.icons8.com/color/144/group.png",
   },
   {
-    title: "AI-Powered insights",
+    title: "Weather-Proof Quality",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
-    image: image,
+      "Built for Indian conditions! 100% waterproof, UV-resistant, heat-tolerant stickers that survive monsoons, summers, and daily wear. Premium adhesive, zero residue removal.",
+    image: "https://img.icons8.com/color/144/shield.png",
   },
 ];
 
 const featureList: string[] = [
-  "Dark/Light theme",
-  "Reviews",
-  "Features",
-  "Pricing",
-  "Contact form",
-  "Our team",
-  "Responsive design",
-  "Newsletter",
-  "Minimalist",
+  "QR Scan Technology",
+  "Privacy Protection",
+  "50+ Characters",
+  "Indian Regional Pride", 
+  "Waterproof Design",
+  "UV & Heat Resistant",
+  "Easy Car Installation",
+  "Secure Messaging",
+  "24/7 Platform Support",
+  "Cultural Diversity",
+  "Attitude Expression",
+  "Zero Phone Sharing",
 ];
+
+const FeatureSlider = () => {
+  // Duplicate the list for seamless infinite scroll
+  const repeatedList = [...featureList, ...featureList];
+  return (
+    <div className="overflow-hidden w-full">
+      <div
+        className="flex gap-4 animate-feature-marquee"
+        style={{
+          width: `${featureList.length * 2 * 160}px`,
+        }}
+      >
+        {repeatedList.map((feature, idx) => (
+          <div key={feature + idx} className="flex-shrink-0 flex items-center justify-center" style={{ width: 150 }}>
+            <Badge variant="secondary" className="text-sm w-full text-center whitespace-nowrap flex items-center justify-center">
+              {feature}
+            </Badge>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export const Features = () => {
   return (
@@ -56,44 +79,62 @@ export const Features = () => {
       className="container py-24 sm:py-32 space-y-8"
     >
       <h2 className="text-3xl lg:text-4xl font-bold md:text-center">
-        Many{" "}
+        Why Choose{" "}
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-          Great Features
+          ZiddiQR
         </span>
       </h2>
 
-      <div className="flex flex-wrap md:justify-center gap-4">
-        {featureList.map((feature: string) => (
-          <div key={feature}>
-            <Badge
-              variant="secondary"
-              className="text-sm"
-            >
-              {feature}
-            </Badge>
-          </div>
-        ))}
-      </div>
+      <p className="text-xl text-center text-muted-foreground max-w-3xl mx-auto">
+        India's first attitude-driven QR contact solution. <strong>Apni Gaadi, Apni Pehchaan!</strong> 🚗🇮🇳
+      </p>
+
+      {/* Feature slider */}
+      <FeatureSlider />
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {features.map(({ title, description, image }: FeatureProps) => (
-          <Card key={title}>
+          <Card key={title} className="hover:shadow-lg transition-shadow border-2 hover:border-primary/20">
             <CardHeader>
-              <CardTitle>{title}</CardTitle>
+              <CardTitle className="text-xl">{title}</CardTitle>
             </CardHeader>
 
-            <CardContent>{description}</CardContent>
+            <CardContent>
+              <p className="text-muted-foreground leading-relaxed">{description}</p>
+            </CardContent>
 
-            <CardFooter>
+            <CardFooter className="flex justify-center">
               <img
                 src={image}
-                alt="About feature"
-                className="w-[200px] lg:w-[300px] mx-auto"
+                alt={`${title} feature illustration`}
+                className="w-[120px] h-[120px] object-contain"
               />
             </CardFooter>
           </Card>
         ))}
       </div>
+
+      {/* Call to action
+      <div className="text-center mt-12 p-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg">
+        <h3 className="text-2xl font-bold mb-2">Ready to Show Your Attitude?</h3>
+        <p className="text-muted-foreground mb-4">
+          Join thousands of Indians who've upgraded their car contact game with ZiddiQR!
+        </p>
+        <div className="flex justify-center gap-4">
+          <a 
+            href="#pricing" 
+            className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors font-medium"
+          >
+            View Pricing - Starting ₹199
+          </a>
+          <a 
+            href="#characters" 
+            className="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary/10 transition-colors font-medium"
+          >
+            Choose Your Character
+          </a>
+        </div>
+      </div> */}
     </section>
   );
 };
