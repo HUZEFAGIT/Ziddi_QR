@@ -25,7 +25,7 @@ function App() {
       <Hero />
       {/* <Sponsors /> */}
       <About />
-      <ProblemSolution /> {/* NEW - Insert after About */}
+      <ProblemSolution /> 
 
       <HowItWorks />
       <Features />

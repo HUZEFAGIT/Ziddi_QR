@@ -9,14 +9,9 @@ export const Hero = () => {
     <section className="container grid lg:grid-cols-2 place-items-center py-12 md:py-20 gap-8">
       <div className="text-center lg:text-start space-y-6">
         <main className="text-5xl md:text-6xl font-bold">
-          <h1 className="inline">
-            <span className="inline bg-gradient-to-r from-[#F596D3] to-[#D247BF] text-transparent bg-clip-text">
-              ZiddiQR
-            </span>{" "}
-          </h1>{" "}
           <h2 className="inline">
             <span className="inline bg-gradient-to-r from-[#61DAFB] via-[#1fc0f1] to-[#03a3d7] text-transparent bg-clip-text">
-              QR 
+              ZiddiQR
             </span>{" "}
           </h2>
         </main>
@@ -24,6 +19,10 @@ export const Hero = () => {
         <p className="text-xl text-muted-foreground md:w-10/12 mx-auto lg:mx-0">
           <strong>Apni Gaadi, Apni Pehchaan!</strong> <em>Style bhi, Safety bhi!</em>
         </p>
+
+        <div className="mt-6">
+          <ImageCarousel />
+        </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
           <Button className="text-lg px-8 py-3">
@@ -53,11 +52,6 @@ export const Hero = () => {
           <span className="text-sm bg-purple-100 text-purple-800 px-3 py-1 rounded-full">
             🇮🇳 Made for India
           </span>
-        </div>
-
-        {/* Carousel integrated in Hero section */}
-        <div className="mt-8">
-          <ImageCarousel />
         </div>
       </div>
 

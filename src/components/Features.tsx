@@ -107,34 +107,12 @@ export const Features = () => {
               <img
                 src={image}
                 alt={`${title} feature illustration`}
-                className="w-[120px] h-[120px] object-contain"
+                className="w-[120px] h-[120px] object-contain filter brightness-0 dark:brightness-0 dark:invert"
               />
             </CardFooter>
           </Card>
         ))}
       </div>
-
-      {/* Call to action
-      <div className="text-center mt-12 p-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg">
-        <h3 className="text-2xl font-bold mb-2">Ready to Show Your Attitude?</h3>
-        <p className="text-muted-foreground mb-4">
-          Join thousands of Indians who've upgraded their car contact game with ZiddiQR!
-        </p>
-        <div className="flex justify-center gap-4">
-          <a 
-            href="#pricing" 
-            className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors font-medium"
-          >
-            View Pricing - Starting ₹199
-          </a>
-          <a 
-            href="#characters" 
-            className="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary/10 transition-colors font-medium"
-          >
-            Choose Your Character
-          </a>
-        </div>
-      </div> */}
     </section>
   );
 };
