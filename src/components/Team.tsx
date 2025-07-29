@@ -5,6 +5,18 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import C1 from "@/assets/Characters/C1.png";
+import C2 from "@/assets/Characters/C2.png";
+import C3 from "@/assets/Characters/C3.png";
+import C4 from "@/assets/Characters/C4.png";
+
+import C5 from "@/assets/Characters/C5.png";
+import C6 from "@/assets/Characters/C6.png";
+import C7 from "@/assets/Characters/C7.png";
+import C8 from "@/assets/Characters/C8.png";
+import C9 from "@/assets/Characters/C9.png";
+import C10 from "@/assets/Characters/C10.png";
+
 
 interface CharacterProps {
   imageUrl: string;
@@ -15,65 +27,66 @@ interface CharacterProps {
 
 const characterList: CharacterProps[] = [
   {
-    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=itbaba",
-    name: "IT Baba",
-    region: "Pune/Bangalore",
-    tagline: "I build the internet.",
+    imageUrl: C8,
+    name: "Boss Lady",
+    region: "Delhi NCR",
+    tagline: "Move your car, or I’ll move you.",
   },
   {
-    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=sherpunjab",
+    imageUrl: C1,
     name: "Sher-e-Punjab",
     region: "Punjab",
     tagline: "I don’t honk. People move.",
   },
   {
-    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=mumbaidon",
-    name: "Mumbai Don",
-    region: "Maharashtra",
-    tagline: "Boss of the block.",
-  },
-  {
-    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=desiwarrior",
+    imageUrl: C9,
     name: "Desi Warrior",
     region: "Maharashtra",
     tagline: "My code is honor.",
   },
   {
-    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=jattmuscleman",
-    name: "Jatt Muscleman",
-    region: "Haryana/Punjab",
-    tagline: "Muscle is the message.",
-  },
-  {
-    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=swagwalidilligirl",
-    name: "Swagwali Dilli Girl",
-    region: "Delhi NCR",
-    tagline: "Move your car, or I’ll move you.",
-  },
-  {
-    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=nammatechie",
-    name: "Namma Techie",
-    region: "Bengaluru",
-    tagline: "Sleep is for backend jobs.",
-  },
-  {
-    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=upbhaiya",
+    imageUrl: C10,
     name: "UP Bhaiya",
     region: "Uttar Pradesh",
     tagline: "Tu scan kar, baaki main dekh lunga.",
   },
   {
-    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=riderx",
-    name: "Rider X",
-    region: "Universal",
-    tagline: "Born to overtake.",
+    imageUrl: C4,
+    name: "Swaggy Boy",
+    region: "Pan-India",
+    tagline: "Style is my superpower.",
   },
   {
-    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=bosslady",
-    name: "Boss Lady",
-    region: "Pan-India",
-    tagline: "I run this road.",
+    imageUrl: C5,
+    name: "Veer Hanuman",
+    region: "Divine",
+    tagline: "Power. Devotion. Fearless.",
   },
+  {
+    imageUrl: C2,
+    name: "Jatt Muscleman",
+    region: "Haryana/Punjab",
+    tagline: "Muscle is the message.",
+  },
+  {
+    imageUrl: C7,
+    name: "Ghost Coder",
+    region: "Unknown",
+    tagline: "Code is my mask.",
+  },
+  {
+    imageUrl: C3,
+    name: "Moustachio Bhai",
+    region: "Rajasthan",
+    tagline: "Mooch ho toh Nathulal jaisi.",
+  },
+  {
+    imageUrl: C6,
+    name: "Highway Monk",
+    region: "Pan-India",
+    tagline: "Born to ride, wired to roam.",
+  },
+
 ];
 
 export const Characters = () => {
